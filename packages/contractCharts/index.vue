@@ -35,9 +35,9 @@
           legend: {
             show: true,
             data: [
-              { name: "星和宅配", textStyle: { color: "#999" } },
-              { name: "研发中心", textStyle: { color: "#999" } },
-              { name: "住建集采", textStyle: { color: "#999" } }
+              { name: "Stark", textStyle: { color: "#999" } },
+              { name: "异鬼", textStyle: { color: "#999" } },
+              { name: "守夜人", textStyle: { color: "#999" } }
             ]
           },
           series: [
@@ -256,7 +256,7 @@
                   }
                 }
               ],
-              categories: [{ name: "星和宅配" }, { name: "研发中心" }, { name: "住建集采" }]
+              categories: [{ name: "Stark" }, { name: "异鬼" }, { name: "守夜人" }]
             }
           ]
 }

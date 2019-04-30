@@ -1,5 +1,5 @@
 {
-  "name": "meowui",
+  "name": "meowmeowui",
   "version": "0.0.1",
   "description": "meowui",
   "author": "calamus0427 <1211994507@qq.com>",
@@ -105,7 +105,8 @@
   "files": [
     "dist",
     "packages",
-    "example"
+    "example",
+    "lib"
   ],
   "homepage": "https://github.com/calamus0427/meowui#readme",
   "license": "MIT"

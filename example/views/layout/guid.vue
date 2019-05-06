@@ -3,17 +3,29 @@
     <header>
       <img src="../../../static/logo.jpeg" alt="">
       <p>MeowUI</p>
+      <div class="links">
+        <div class="link_items">
+          <router-link :to="{name: 'index'}">首页</router-link>
+          <a href="#calamus" >111</a>
+          <a href="https://github.com/calamus0427" target="_blank">github</a>
+          <a href="https://www.calamus.xyz" target="_blank">calamus</a>
+        </div>
+      </div>
     </header>
     <div class="guid_container">
       <div class="guid_scroll">
         <aside>
           <div>
-            <ul v-for="(item,index) in menuList" :key="index">
-              <a class="classification" href="javascript:;">{{item.title}}</a>
+            <p v-for="(item,index) in titleList" :key="index" class="introduce_title">
+              <router-link :to="{'name': item.path}">{{item.title}}</router-link>
+            </p>
+            <p class="components_title">组件</p>
+            <ul class="components_container" v-for="(item,index) in menuList" :key="index">
+              <span class="classification" href="javascript:;">{{item.title}}</span>
               <li v-for="(list,index) in item.list" :key="index">
                 <ul>
                   <li>
-                    <a href="list.path">{{list.title}}</a>
+                    <router-link :to="{'name': list.path}">{{list.title}}</router-link>
                   </li>
                 </ul>
               </li>
@@ -21,21 +33,32 @@
           </div>
         </aside>
         <div class="meow_docs">
-          <router-view />
+          <keep-alive>
+            <router-view />
+          </keep-alive>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'GuidLayout',
   components:{
   },
   data () {
     return {
+      titleList:[
+        {
+          title:'关于',
+          path:'introduce'
+        },
+        {
+          title:'快速开始',
+          path:'start'
+        }
+      ],
       menuList:[{
         title:'工具',
         list:[{
@@ -112,6 +135,16 @@ header>p{
 header>img:hover{
   animation: headShake 1000ms both;
 }
+header .links{
+  width:100%
+}
+header .links .link_items{
+  float:right
+}
+header .links .link_items a{
+  color:#ef858c;
+  padding:0 1.5rem;
+}
 
 .guid_container{
   height: 100%;
@@ -146,34 +179,50 @@ header>img:hover{
   top:60px; */
 }
 
+.introduce_title{
+  font-size:16px;
+  padding:0.2rem 0;
+}
+.introduce_title a{
+  color:#ef858c;
+}
+.components_title{
+  padding:0.5rem 0 0.2rem 0;
+  color: #ef858c;
+  font-weight: bold;
+}
 ul{
   list-style: none;
 }
-ul .classification{
+.components_container{
+  margin-left:2rem;
+  margin-top:0.5rem;
+}
+.components_container .classification{
   font-size:14px;
   color:#ef858c;
   cursor: text;
   user-select:none;
 }
-ul li{
+.components_container li{
   padding:0.2rem 0;
 }
-ul{
+.components_container{
   margin-bottom: 0.5rem;
 }
-ul li a{
+.components_container li a{
   text-shadow: 5px 5px 5px #80808087;
   color:#ef858c;
   font-size:16px;
   padding:0.4rem 0;
 }
-ul li a:hover{
+.components_container li a:hover{
         color: #f5d5da;
         font-weight: bold;
         text-decoration: none;
         text-shadow: 5px 5px 5px #f5d5daee;
 }
-ul li >ul{
+.components_container li >ul{
   margin-left:2rem;
 }
 </style>

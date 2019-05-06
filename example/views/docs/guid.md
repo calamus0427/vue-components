@@ -4,7 +4,7 @@
 
 
 
-## [demo](#docs/guid#demo)
+## demo
 
 ### Calamus
 <div class="demo-block" style="color:red">

@@ -119,7 +119,8 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './packages/index.js'
+    app: './example/main.js'  //示例文档时的配置
+    // app: './package/index.js'  //打包发布的时候修改的配置
   },
   output: {
     path: config.build.assetsRoot,

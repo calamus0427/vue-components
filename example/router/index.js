@@ -13,12 +13,13 @@ export default new Router({
       component: _import_('dashboard/index.vue')
     },
     {
-      path: '',
+      path: '/docs',
       name: 'Docs',
       component: GuidLayout,
+      redirect:'/',
       children:[
         {
-          path: '/guid',
+          path: 'guid',
           name: 'guid',
           component: _import_('docs/guid.md')
         }

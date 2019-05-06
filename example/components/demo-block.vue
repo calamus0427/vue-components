@@ -1,6 +1,6 @@
 <template>
   <div class="docs-demo-wrapper">
-      <div :style="{height: isExpand ? 'auto' : '0'}" class="demo-container">
+      <div :style="{'max-height': isExpand ? '200px' : '0'}" class="demo-container">
         <div span="14">
           <div class="docs-demo docs-demo--expand">
             <div class="highlight-wrapper">
@@ -31,8 +31,11 @@
 </script>
 
 <style>
+.docs-demo-wrapper{
+  margin-right:1rem;
+}
   .demo-container {
-    transition: max-height .3s ease;
+    transition: max-height .8s ease;
     overflow: hidden;
   }
   .docs-demo {
@@ -52,12 +55,17 @@
     }
   .docs-trans {
     width: 100%;
+    transition: all .2s ease;
     text-align: center;
     display: inline-block;
     color: #C5D9E8;
     font-size: 12px;
     padding: 10px 0;
     background-color: #FAFBFC;
+    cursor: pointer;
+  }
+  .docs-trans:hover{
+      color: #8bbee4;
   }
 
   .docs-demo__code,

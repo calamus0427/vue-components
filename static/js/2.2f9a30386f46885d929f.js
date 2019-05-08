@@ -1,0 +1,2 @@
+webpackJsonp([2],{"15jI":function(e,n,t){e.exports=t("DnRn")},DnRn:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r={render:function(){this.$createElement;this._self._c;return this._m(0)},staticRenderFns:[function(){var e=this.$createElement,n=this._self._c||e;return n("section",[n("h1",[this._v("transfer")])])}]},s=t("VU/8")(null,r,!1,null,null,null);n.default=s.exports}});
+//# sourceMappingURL=2.2f9a30386f46885d929f.js.map

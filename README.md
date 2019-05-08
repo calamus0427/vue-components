@@ -1,4 +1,4 @@
-# MeowMeowUI
+# [MeowMeowUI](https://calamus.wiki/MeowMeowUI/)
 
 > MeowMeowUI
 

@@ -57,7 +57,7 @@ var blockHeight = 50;
 var blockWidth = 300;
 
 export default {
-    name:"VueSvgTree",
+    name:'svgTree',
     data(){
       return {
           rules: {

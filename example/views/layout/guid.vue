@@ -2,11 +2,12 @@
   <div class="guid_layout">
     <header>
       <img src="../../../static/logo.jpeg" alt="">
-      <p>MeowUI</p>
+      <p>
+        <router-link :to="{path: '/'}">MeowUI</router-link>
+      </p>
       <div class="links">
         <div class="link_items">
           <router-link :to="{name: 'index'}">首页</router-link>
-          <a href="#calamus" >111</a>
           <a href="https://github.com/calamus0427" target="_blank">github</a>
           <a href="https://www.calamus.xyz" target="_blank">calamus</a>
         </div>
@@ -15,22 +16,7 @@
     <div class="guid_container">
       <div class="guid_scroll">
         <aside>
-          <div>
-            <p v-for="(item,index) in titleList" :key="index" class="introduce_title">
-              <router-link :to="{'name': item.path}">{{item.title}}</router-link>
-            </p>
-            <p class="components_title">组件</p>
-            <ul class="components_container" v-for="(item,index) in menuList" :key="index">
-              <span class="classification" href="javascript:;">{{item.title}}</span>
-              <li v-for="(list,index) in item.list" :key="index">
-                <ul>
-                  <li>
-                    <router-link :to="{'name': list.path}">{{list.title}}</router-link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+          <aside-layout />
         </aside>
         <div class="meow_docs">
           <keep-alive>
@@ -43,32 +29,16 @@
 </template>
 
 <script>
+import AsideLayout from './components/leftAside'
+import {list } from '../../utils/list.js'
 export default {
   name: 'GuidLayout',
   components:{
+    AsideLayout
   },
   data () {
     return {
-      titleList:[
-        {
-          title:'关于',
-          path:'introduce'
-        },
-        {
-          title:'快速开始',
-          path:'start'
-        }
-      ],
-      menuList:[{
-        title:'工具',
-        list:[{
-          title:'防抖',
-          path:''
-        },{
-          title:'节流',
-          path:''
-        }]
-      }]
+      treeData:list
     }
   }
 }
@@ -105,18 +75,18 @@ export default {
   min-height:100vh;
   overflow-y: hidden;
   background-color: #fff;
-  background-image:
+  /* background-image:
   linear-gradient(90deg, transparent 231px, #f5d5da 231px, #f5d5da 233px, transparent 233px),
   linear-gradient(#eee .1em, transparent .1em);
-  background-size: 100% 1.2em;
+  background-size: 100% 1.2em; */
 }
 header{
   position: fixed;
   height:60px;
   width:100%;
   background: white;
-  border-bottom:2px solid #eee;
-
+  border-bottom:2px solid #f5d5da;
+  box-shadow: 0px 0px 1px #f5d5da, 0px 0px 3px #f5d5da, 0px 0px 4px #f5d5da, 0 0 0.5px #f5d5da; /* 文字の影 */
   display: flex;
   align-items: center;
 }
@@ -125,7 +95,7 @@ header>img{
   border-radius:50%;
   margin-left:1rem;
 }
-header>p{
+header>p a{
   margin-left:1rem;
   font-size:18px;
   font-weight: bold;
@@ -147,23 +117,36 @@ header .links .link_items a{
 }
 
 .guid_container{
+  min-height:calc(100vh - 60px);
   height: 100%;
-  min-height: auto;
+  width:100%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: right top;
+  background-image: url(https://cdn.calamus.xyz/blog_ali/calamus_02.png);
 }
 .guid_container .guid_scroll{
+    width:80%;
+    margin:0 auto;
+    max-width:1440px;
     height: calc(100% - 60px);
     margin-top: 60px;
 }
 
   .guid_scroll aside{
-    /* position: absolute;
-    top:60px;
-    width:233px; */
     position: fixed;
     top: 1rem;
     bottom: 0;
     margin-top: 60px;
     transition: padding-top .3s;
+
+    background-color: #fff;
+    border: 1px #f2f2f2 solid;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 3px 20px 3px rgba(0, 64, 128, .2);
   }
   .guid_scroll aside>div{
     overflow: scroll;
@@ -171,58 +154,20 @@ header .links .link_items a{
     width:233px;
   }
  .guid_scroll .meow_docs{
-       padding-left: 233px;
+    margin-left: 240px;
+    margin-top: 75px;
     padding-bottom: 100px;
     box-sizing: border-box;
   /* position: absolute;
   left:233px;
   top:60px; */
+  background-color: #fff;
+    border: 1px #f2f2f2 solid;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 3px 20px 3px rgba(0, 64, 128, .2);
 }
 
-.introduce_title{
-  font-size:16px;
-  padding:0.2rem 0;
-}
-.introduce_title a{
-  color:#ef858c;
-}
-.components_title{
-  padding:0.5rem 0 0.2rem 0;
-  color: #ef858c;
-  font-weight: bold;
-}
-ul{
-  list-style: none;
-}
-.components_container{
-  margin-left:2rem;
-  margin-top:0.5rem;
-}
-.components_container .classification{
-  font-size:14px;
-  color:#ef858c;
-  cursor: text;
-  user-select:none;
-}
-.components_container li{
-  padding:0.2rem 0;
-}
-.components_container{
-  margin-bottom: 0.5rem;
-}
-.components_container li a{
-  text-shadow: 5px 5px 5px #80808087;
-  color:#ef858c;
-  font-size:16px;
-  padding:0.4rem 0;
-}
-.components_container li a:hover{
-        color: #f5d5da;
-        font-weight: bold;
-        text-decoration: none;
-        text-shadow: 5px 5px 5px #f5d5daee;
-}
-.components_container li >ul{
-  margin-left:2rem;
-}
+
+
 </style>

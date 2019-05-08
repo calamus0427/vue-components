@@ -3,19 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import meowUi from '../packages/index'
+import MeowUi from '../packages/index'
+// import timeLine from '../packages/timeLine/src/index.vue'
 import demoBlock from './components/demo-block.vue'
-
-Vue.component('demo-block', demoBlock)
-Vue.use(meowUi)
-Vue.config.productionTip = false
 import 'highlight.js/styles/color-brewer.css';
 import './assets/common.css';
+
+Vue.component('demo-block', demoBlock)
+// Vue.component(timeLine.name, timeLine)
+Vue.use(MeowUi)
+Vue.config.productionTip = false
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })

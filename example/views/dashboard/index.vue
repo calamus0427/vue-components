@@ -4,7 +4,7 @@
       <img src="../../assets/img/dash.jpeg">
       <p>超级可爱的UI库</p>
       <div class="btn">
-        <router-link :to="{name: 'guid'}">开始使用</router-link>
+        <router-link :to="{path: 'docs'}">开始使用</router-link>
         <a target="_blank" class="btn-github" href="https://github.com/calamus0427">GitHub</a>
       </div>
     </div>
@@ -27,31 +27,12 @@
   overflow: hidden;
 	color: #ef858c; /* 文字色 */
 	position: relative;
-	text-shadow: 0px 0px 1px #fff, 0px 0px 3px #fff, 0px 0px 4px #fff, 0 0 0.5px #fff; /* 文字の影 */
-  background:
-        radial-gradient(
-            #f0e68cb5 40px,
-            transparent 0,
-            transparent 100%
-        ),
-        radial-gradient(
-            #a4d2e4a1 40px,
-            transparent 0,
-            transparent 100%
-        ),
-        radial-gradient(
-            #ffc0cbb8 40px,
-            transparent 0,
-            transparent 100%
-        ), snow;
-  background-blend-mode: multiply;
-  background-size: 100px 100px;
-  background-position: 0 0, 33px 33px, -33px -33px;
-  background-color: #f5d5da; /* 背景色 */
+	text-shadow: 0px 0px 1px #f5d5da, 0px 0px 3px #f5d5da, 0px 0px 4px #f5d5da, 0 0 0.5px #f5d5da; /* 文字の影 */
+  background-color: white; /* 背景色 */
 }
 .pg:before{
 	content: '＊*'; /*花に見せかけるためのアスタリスク*/
-	color: #fff; /* アスタリスクの色 */
+	color: #f5d5da; /* アスタリスクの色 */
 	display: inline-block;
 	font-size: 60px; /* アスタリスクの大きさ */
 	font-weight: bold;
@@ -66,10 +47,10 @@
 	text-shadow: 0px 0px 3px #fff, 0px 0px 2px #fff, 0 0 0.5px #fff; /* アスタリスク周りの影 */
 }
 .pg:after{
-	border-bottom: 2px dotted #fff; /* 下線 */
+	border-bottom: 2px dotted #f5d5da; /* 下線 */
 	content: '';
 	position: absolute;
-	bottom: 3px;
+	bottom: 14px;
 	left: 3px;
 	right: 3px;
 }

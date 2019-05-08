@@ -7,7 +7,10 @@ const striptags = require('./strip-tags'); // 引入刚刚的工具类
 const md = require('markdown-it')()
 const vueLoaderConfig = require('./vue-loader.conf')
 const MarkdownItAnchor = require('markdown-it-anchor')
+const MarkdownItCheckbox = require('markdown-it-task-checkbox')
+const MarkdownItToc = require("markdown-it-toc-done-right")
 const MarkdownItContainer = require('markdown-it-container')
+const isProd = process.env.NODE_ENV === 'production';
 
 /**
  * 由于cheerio在转换汉字时会出现转为Unicode的情况,所以我们编写convert方法来保证最终转码正确
@@ -69,6 +72,14 @@ const vueMarkdown = {
       permalinkBefore: true, // 在标题前创建锚点
       // renderPermalink:
     }],
+    [MarkdownItToc,{
+      level:1,
+      listType:'ul',
+      listClass:'markdown_toc',
+      format:function format(x, htmlencode) {
+        return `<span>${htmlencode(x)}</span>`;
+      }
+    }],
     [MarkdownItContainer, 'demo', {
       validate: params => params.trim().match(/^demo\s*(.*)$/),
       render: function(tokens, idx) {
@@ -91,14 +102,17 @@ const vueMarkdown = {
           var descriptionHTML = description
             ? md.render(description)
             : '';
+
           // 将jsfiddle对象转换为字符串,并将特殊字符转为转义序列
           jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
           // 起始标签,写入demo-block模板开头,并传入参数
-          // return `<demo-block>
-          //               <div slot="desc">${html}</div>
-          //               <div slot="highlight">`;
+          //TODO：demo-block 里的组件代码不支持单标签闭合，否则无法渲染后面的数据
+          // return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
+          //           // <div class="jsfiddle" slot="jsfiddle">${jsfiddle}</div>
+          //           <div class="source" slot="desc">${html}</div>
+          //           ${descriptionHTML}
+          //           <div class="highlight" slot="highlight">`;
           return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
-                    <div class="source" slot="desc">${html}</div>
                     ${descriptionHTML}
                     <div class="highlight" slot="highlight">`;
         }
@@ -107,7 +121,15 @@ const vueMarkdown = {
       }
     }],
     [require('markdown-it-container'), 'tip'],
-    [require('markdown-it-container'), 'warning']
+    [require('markdown-it-container'), 'warning'],
+    [MarkdownItCheckbox,{
+      divWrap: true,
+      divClass: 'cb',
+      idPrefix: 'cbx_',
+      disabled:true,
+      ulClass: 'task-list',
+      liClass: 'task-list-item'
+    }]
   ]
 }
 
@@ -118,7 +140,7 @@ function resolve (dir) {
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
+  // context: path.resolve(__dirname, '../'),
   entry: {
     app: './example/main.js'  //示例文档时的配置
     // app: './package/index.js'  //打包发布的时候修改的配置
@@ -152,7 +174,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('example'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('example'), resolve('test'),resolve('packages')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -180,16 +202,16 @@ module.exports = {
       }
     ]
   },
-  node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
-    setImmediate: false,
-    // prevent webpack from injecting mocks to Node native modules
-    // that does not make sense for the client
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty'
-  }
+  // node: {
+  //   // prevent webpack from injecting useless setImmediate polyfill because Vue
+  //   // source contains it (although only uses it if it's native).
+  //   setImmediate: false,
+  //   // prevent webpack from injecting mocks to Node native modules
+  //   // that does not make sense for the client
+  //   dgram: 'empty',
+  //   fs: 'empty',
+  //   net: 'empty',
+  //   tls: 'empty',
+  //   child_process: 'empty'
+  // }
 }

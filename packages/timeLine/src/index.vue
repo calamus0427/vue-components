@@ -2,18 +2,10 @@
   <div class="time">
     <div class="time-line">
       <div v-for="(item,index) in list" class="time-line-div" :key="index">
-        <p>{{item.progressUpdateTime}}</p>
+        <p>{{item.title}}</p>
         <p ref="circular"></p>
         <p>
-          <el-row>
-            <span v-if="item.optionType=='0'">{{item.updaterName}}新增 {{item.krName}}</span>
-            <div v-else-if="item.optionType=='1'">
-              <span>{{item.updaterName}}更新 {{item.krName}}</span>
-              <span>当前进度为 {{item.progress}}</span>
-            </div>
-            <span v-else-if="item.optionType=='2'">{{item.updaterName}}完成 {{item.krName}}</span>
-            <span v-else>删除 {{item.krName}}</span>
-          </el-row>
+          {{item.des}}
         </p>
       </div>
       <div class="img-dotted" ref="dotted"></div>
@@ -23,9 +15,9 @@
 </template>
 
 <script>
-import moment from "moment";
 
 export default {
+  name:'timeLine',
   data() {
     return {};
   },
@@ -41,9 +33,7 @@ export default {
     }
   },
   methods: {
-    dealTime(date) {
-      return moment(date).format("YYYY-MM-DD");
-    }
+
   }
 };
 </script>
@@ -97,7 +87,7 @@ export default {
 }
 .img-dotted {
   position: absolute;
-  width: 20px;
+  width: 14px;
   height: 100%;
   top: 0;
   z-index: 1;

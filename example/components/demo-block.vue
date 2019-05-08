@@ -1,9 +1,11 @@
 <template>
   <div class="docs-demo-wrapper">
-      <div :style="{'max-height': isExpand ? '200px' : '0'}" class="demo-container">
+      <div :style="{'max-height': isExpand ? '500px' : '0'}" class="demo-container">
         <div span="14">
           <div class="docs-demo docs-demo--expand">
             <div class="highlight-wrapper">
+              <slot name="jsfiddle"></slot>
+              <slot name="toc"></slot>
               <slot name="highlight"></slot>
             </div>
           </div>
@@ -17,6 +19,7 @@
   /* eslint-disable */
   import Vue from 'vue'
   export default {
+    name:"DemoBlock",
     data() {
       return {
         isExpand: false
@@ -36,7 +39,7 @@
 }
   .demo-container {
     transition: max-height .8s ease;
-    overflow: hidden;
+    overflow: scroll;
   }
   .docs-demo {
     width: 100%;

@@ -1,38 +1,38 @@
 <template>
   <div class="amap-container" :style="{height: flexHeight}">
     <div class="svgBtn" v-show="chooseArea">
-      <el-select v-model="svgChoose" placeholder="请选择选择区域" @change="changeSvg">
-        <el-option label="圆" value="1" />
-        <el-option label="折线" value="2" />
-        <!-- <el-option label="椭圆" value="3" /> -->
-        <!-- <el-option label="矩形" value="4" /> -->
-        <el-option label="多边形" value="5" />
-        <el-option label="自定义多边形" value="6" />
-      </el-select>
-      <el-button-group v-show="svgChoose == 1">
-        <el-button @click="addCircle">添加圆</el-button>
-        <el-button @click="editCircle">编辑圆</el-button>
-        <el-button @click="exitCircle">结束编辑圆</el-button>
-        <el-button @click="removeCircle">del circle</el-button>
-      </el-button-group>
-      <el-button-group v-show="svgChoose == 5">
-        <el-button @click="addPolygon">添加多边形</el-button>
-        <el-button @click="editPolygon">编辑多边形</el-button>
-        <el-button @click="exitPolygon">结束编辑多边形</el-button>
-        <el-button @click="removePolygon">del多边形</el-button>
-      </el-button-group>
-      <el-button-group v-show="svgChoose == 6">
-        <el-button id="addmPolygon">添加自定义多边形</el-button>
-        <el-button id="clearPolygon">删除多边形</el-button>
-      </el-button-group>
-      <el-button-group v-show="svgChoose == 2">
-        <el-button  id="measureLine">两点测距离</el-button>
-        <el-button  id="measureLineDel">删除直线</el-button>
-      </el-button-group>
+      <select v-model="svgChoose" placeholder="请选择选择区域" @change="changeSvg">
+        <option label="圆" value="1" />
+        <option label="折线" value="2" />
+        <!-- <option label="椭圆" value="3" /> -->
+        <!-- <option label="矩形" value="4" /> -->
+        <option label="多边形" value="5" />
+        <option label="自定义多边形" value="6" />
+      </select>
+      <div v-show="svgChoose == 1">
+        <button @click="addCircle">添加圆</button>
+        <button @click="editCircle">编辑圆</button>
+        <button @click="exitCircle">结束编辑圆</button>
+        <button @click="removeCircle">del circle</button>
+      </div>
+      <div v-show="svgChoose == 5">
+        <button @click="addPolygon">添加多边形</button>
+        <button @click="editPolygon">编辑多边形</button>
+        <button @click="exitPolygon">结束编辑多边形</button>
+        <button @click="removePolygon">del多边形</button>
+      </div>
+      <div v-show="svgChoose == 6">
+        <button id="addmPolygon">添加自定义多边形</button>
+        <button id="clearPolygon">删除多边形</button>
+      </div>
+      <div v-show="svgChoose == 2">
+        <button  id="measureLine">两点测距离</button>
+        <button  id="measureLineDel">删除直线</button>
+      </div>
     </div>
 
-    <el-amap-search-box v-show="searchArea" class="search-box" v-model="inputSearch"  :search-option="searchOption" :on-search-result="onSearchResult"></el-amap-search-box>
-    <el-amap
+    <amap-search-box v-show="searchArea" class="search-box" v-model="inputSearch"  :search-option="searchOption" :on-search-result="onSearchResult"></amap-search-box>
+    <amap
       ref="amap"
       :vid="vid"
       :center="mapCenter"
@@ -46,24 +46,24 @@
     >
       <div v-show="false" id="panel"></div>
       <!-- 红色中心点 -->
-      <el-amap-marker v-if="showCenter" zIndex="2000" class="aaaaa" icon="http://calamus-public.oss-cn-beijing.aliyuncs.com/xhe/default_2x-fs.png" @click.stop="markerClick" :clickable="clickable" :position="mapCenter"></el-amap-marker>
-      <el-amap-info-window
+      <amap-marker v-if="showCenter" zIndex="2000" class="aaaaa" icon="http://calamus-public.oss-cn-beijing.aliyuncs.com/xhe/default_2x-fs.png" @click.stop="markerClick" :clickable="clickable" :position="mapCenter"></amap-marker>
+      <amap-info-window
         :position="currentWindow.position"
         :content="currentWindow.content"
         :visible="currentWindow.visible"
         :events="currentWindow.events"
         :autoMove="currentWindow.autoMove">
-      </el-amap-info-window>
-      <el-amap-marker  zIndex="2000" v-for="(marker,index) in firstMarkers" :key="index" :position="marker.poi" :content="setFirstMarkers(marker)" :title="marker.address" :events="marker.events" @click.stop="markerClick"></el-amap-marker>
-      <el-amap-marker  zIndex="3000" v-for="(marker,index) in secondMarkers" :key="index" :position="marker.poi" :content="setSecondMarkers(marker)" :title="marker.address" @click.stop="markerClick"></el-amap-marker>
+      </amap-info-window>
+      <amap-marker  zIndex="2000" v-for="(marker,index) in firstMarkers" :key="index" :position="marker.poi" :content="setFirstMarkers(marker)" :title="marker.address" :events="marker.events" @click.stop="markerClick"></amap-marker>
+      <amap-marker  zIndex="3000" v-for="(marker,index) in secondMarkers" :key="index" :position="marker.poi" :content="setSecondMarkers(marker)" :title="marker.address" @click.stop="markerClick"></amap-marker>
 
-      <!-- <el-amap-marker  zIndex="3000" v-for="(marker,index) in thirdMarkers" icon="http://calamus-public.oss-cn-beijing.aliyuncs.com/xhe/default_2x-fs.png" :key="index" :position="marker.poi" :content="setSecondMarkers(marker)" :title="marker.address" @click.stop="markerClick"></el-amap-marker> -->
+      <!-- <amap-marker  zIndex="3000" v-for="(marker,index) in thirdMarkers" icon="http://calamus-public.oss-cn-beijing.aliyuncs.com/xhe/default_2x-fs.png" :key="index" :position="marker.poi" :content="setSecondMarkers(marker)" :title="marker.address" @click.stop="markerClick"></amap-marker> -->
 
-      <el-amap-marker cursor="pointer" :bubble="bubble" :clickable="clickable" v-for="(marker,index) in markers" :key="index" :position="marker.poi" @click.stop="markerClick"></el-amap-marker>
+      <amap-marker cursor="pointer" :bubble="bubble" :clickable="clickable" v-for="(marker,index) in markers" :key="index" :position="marker.poi" @click.stop="markerClick"></amap-marker>
       <!-- circle -->
-      <el-amap-circle :visible="circle.visible" :editable="circle.editable" :center="mapCenter" :radius="circle.radius" :fill-opacity="circle.fillOpacity" :events="circle.events"></el-amap-circle>
-      <el-amap-polygon  :visible="polygon.visible" :editable="polygon.editable" :vid="polygon.id" :path="polygon.path" :draggable="polygon.draggable" :events="polygon.events"></el-amap-polygon>
-    </el-amap>
+      <amap-circle :visible="circle.visible" :editable="circle.editable" :center="mapCenter" :radius="circle.radius" :fill-opacity="circle.fillOpacity" :events="circle.events"></amap-circle>
+      <amap-polygon  :visible="polygon.visible" :editable="polygon.editable" :vid="polygon.id" :path="polygon.path" :draggable="polygon.draggable" :events="polygon.events"></amap-polygon>
+    </amap>
     <div class="input-card" v-if="customMarker">
       <h4>轨迹回放控制</h4>
       <div class="input-item">

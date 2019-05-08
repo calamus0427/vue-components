@@ -6,6 +6,17 @@ a{
   text-decoration: none;
 }
 
+/* router */
+.router-link-exact-active,.router-link-active{
+  color: #ec1147 !important;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 5px 5px 5px #f5d5daee;
+}
+
+
+/* 滚动 */
+
 .meow_docs section {
   color: #3f536e;
   font-size: 14px;
@@ -53,16 +64,19 @@ a{
   font-size: 18px;
 }
 .meow_docs section ul {
-  margin: 16px 0;
+  margin: 10px 0;
   padding-left: 24px;
   list-style: disc;
+}
+.meow_docs section ul ul{
+  margin:0 !important;
 }
 .meow_docs section ul li {
   line-height: 1.8;
 }
 .meow_docs section pre {
-  margin: 16px 0;
-  padding: 16px;
+  margin: 1rem;
+  padding: 1rem;
   background-color: #F7F7F7;
   overflow: auto;
 }
@@ -94,24 +108,41 @@ a{
   color: #6190e8;
 }
 .meow_docs section table.table {
-  display: block;
-  width: 100%;
-  background-color: #fff;
-  color: #5e6d82;
-  font-size: 14px;
-  border-collapse: collapse;
-  overflow: auto;
-  margin-bottom: 50px;
+    border-collapse: collapse;
+    width: calc(100% - 2rem);
+    background-color: #fff;
+    font-size: 14px;
+    margin:0.5rem 1rem 45px 1rem;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.meow_docs section table.table th:first-child,.meow_docs section table.table td:first-child {
+  padding-left: 10px;
 }
 .meow_docs section table.table th {
-  border-top: 1px solid #f3f7fa;
+  /* border-top: 1px solid #f3f7fa;
   background-color: #FAFBFC;
   border-bottom: 1px solid #f3f7fa;
-  padding: 10px 8px;
+  padding: 10px 8px; */
+  text-align: left;
+  white-space: nowrap;
+  color: #909399;
+  font-weight: 400;
+}
+.meow_docs section table.table td,.meow_docs section table.table th{
+    border-bottom: 1px solid #dcdfe6;
+    padding: 10px;
+    max-width: 250px;
 }
 .meow_docs section table.table td {
-  border-top: 1px solid #f3f7fa;
-  border-bottom: 1px solid #f3f7fa;
-  padding: 10px 8px;
+  color: #606266;
+}
+
+.meow_docs input[type="checkbox"]:checked + label
+{
+  padding-left: 5px;
+  text-decoration: line-through;
+  text-decoration-color: #606266;
+  color: #909399;
 }
 

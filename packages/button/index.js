@@ -1,8 +1,8 @@
 /**
- * @author calamus
- * Date: 19/4/30
+ * @author monkeywang
+ * Date: 17/11/9
  */
-import Button from './src/index.vue';
+import Button from './src/button.vue';
 
 Button.install = function (Vue) {
   Vue.component(Button.name, Button);

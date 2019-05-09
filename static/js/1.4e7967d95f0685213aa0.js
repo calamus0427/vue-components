@@ -1,0 +1,2 @@
+webpackJsonp([1],{ii7z:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("transfer-header",{attrs:{title:"aaaaa"}})],1)},staticRenderFns:[]},r=a("VU/8")({name:"text"},n,!1,null,null,null);t.default=r.exports}});
+//# sourceMappingURL=1.4e7967d95f0685213aa0.js.map

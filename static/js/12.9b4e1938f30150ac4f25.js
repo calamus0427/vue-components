@@ -1,2 +1,0 @@
-webpackJsonp([12],{IdjD:function(t,e,n){t.exports=n("jppl")},jppl:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s={render:function(){this.$createElement;this._self._c;return this._m(0)},staticRenderFns:[function(){var t=this.$createElement,e=this._self._c||t;return e("section",[e("h1",[this._v("authBtn")]),this._v(" "),e("p",[this._v("敬请期待")])])}]},l=n("VU/8")(null,s,!1,null,null,null);e.default=l.exports}});
-//# sourceMappingURL=12.9b4e1938f30150ac4f25.js.map

@@ -1,5 +1,6 @@
 <template>
   <div  class="pg">
+    <canvas-wave :is-color="true"></canvas-wave>
     <div class="view_container">
       <img src="../../assets/img/dash.jpeg">
       <p>超级可爱的UI库</p>
@@ -8,7 +9,6 @@
         <a target="_blank" class="btn-github" href="https://github.com/calamus0427">GitHub</a>
       </div>
     </div>
-    <!-- <div class="line" v-for="(item,index) in 5" :key="index" :style="{'top':30 + 5 * index + 'vh'}"></div> -->
   </div>
 </template>
 
@@ -28,7 +28,6 @@
 	color: #ef858c; /* 文字色 */
 	position: relative;
 	text-shadow: 0px 0px 1px #f5d5da, 0px 0px 3px #f5d5da, 0px 0px 4px #f5d5da, 0 0 0.5px #f5d5da; /* 文字の影 */
-  background-color: white; /* 背景色 */
 }
 .pg:before{
 	content: '＊*'; /*花に見せかけるためのアスタリスク*/

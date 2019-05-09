@@ -6,12 +6,18 @@
 import Button from './button/index'
 import TimeLine from './timeLine/index'
 import SvgTree from './v2Tree/index'
+import transferHeader from './transferHeader/index'
+import CanvasLine from './canvas/canvas-line.js'
+import CanvasWave from './canvas/canvas-wave.js'
 
 
 const components = [
   Button,
   TimeLine,
-  SvgTree
+  SvgTree,
+  transferHeader,
+  CanvasLine,
+  CanvasWave
 ]
 
 const install = (Vue) => {
@@ -29,5 +35,8 @@ export default {
   /**组件列表 */
   Button,
   TimeLine,
-  SvgTree
+  SvgTree,
+  transferHeader,
+  CanvasLine,
+  CanvasWave
 }

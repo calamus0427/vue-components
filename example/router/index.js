@@ -22,9 +22,19 @@ export default new Router({
       redirect:'/docs/introduce',
       children:[
         {
+          path: 'text',
+          name: 'text',
+          component: _import_('text/index.vue')
+        },
+        {
           path: 'introduce',
           name: 'introduce',
           component: _import_('docs/introduce.md')
+        },
+        {
+          path: 'log',
+          name: 'log',
+          component: _import_('docs/log.md')
         },
         {
           path: 'start',
@@ -73,7 +83,12 @@ export default new Router({
           name:'节流',
           path:'throttl',
           component: _import_('docs/throttl.md')
-        }
+        },
+        {
+          path: 'canvas',
+          name: 'canvas',
+          component: _import_('docs/canvas.md')
+        },
       ]
     },
     {path: '*', component: _import_('dashboard/index.vue'), hidden: true},

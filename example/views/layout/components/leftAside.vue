@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="aside_iner">
             <p v-for="(item,index) in titleList" :key="index" class="introduce_title">
               <router-link :to="{'name': item.path}">{{item.title}}</router-link>
             </p>
@@ -30,6 +30,10 @@ export default {
         {
           title:'快速开始',
           path:'start'
+        },
+        {
+          title:'更新日志',
+          path:'log'
         }
       ],
       menuList:[{
@@ -41,6 +45,9 @@ export default {
       },{
         title:'布局',
         list:[{
+          title:'canvas背景特效',
+          path:'canvas'
+        },{
           title:'分割tabs',
           path:'divideTabs'
         },{
@@ -78,6 +85,9 @@ export default {
 </script>
 
 <style scoped>
+.aside_iner{
+  padding-top: 2rem;
+}
 .introduce_title{
   font-size:16px;
   padding:0.2rem 0;

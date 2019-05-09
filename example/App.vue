@@ -11,11 +11,11 @@ export default {
 </script>
 
 <style>
-/* #app {
+#app {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} */
+}
 html,body {
     padding:0;
     margin:0;
@@ -23,9 +23,4 @@ html,body {
     font-size:14px;
     font-family: "Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft Yahei", "STXihei" !important;
 }
-ul,li {
-        padding:0;
-        margin:0;
-        list-style:none;
-    }
 </style>

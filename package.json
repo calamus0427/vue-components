@@ -1,6 +1,6 @@
 {
   "name": "meowmeowui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "meowui",
   "author": "calamus0427 <1211994507@qq.com>",
   "main": "packages/index.js",

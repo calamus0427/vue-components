@@ -66,7 +66,7 @@ header{
   background-size: cover;
   background-attachment: fixed;
   background-position: right top;
-  background-image: url(../../assets/img/33091827_p0_master1200.jpg);
+  background-image: url(https://cdn.calamus.xyz/meowui/scrollBg.jpg);
 }
 .guid_container .guid_scroll{
     width:80%;

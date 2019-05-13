@@ -2,7 +2,7 @@
   <div  class="pg">
     <canvas-wave :is-color="true"></canvas-wave>
     <div class="view_container">
-      <img src="../../assets/img/dash.jpeg">
+      <img src="https://cdn.calamus.xyz/meowui/dash.jpeg">
       <p>超级可爱的UI库</p>
       <div class="btn">
         <router-link :to="{path: 'docs'}">开始使用</router-link>

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <router-link :to="{path: '/'}">
-      <img class="logo" src="../../../../static/logo.jpeg" alt="">
+      <img class="logo" src="https://cdn.calamus.xyz/meowui/logo.jpeg" alt="">
     </router-link>
     <p>
       <router-link :to="{path: '/'}">MeowUI</router-link>
@@ -12,7 +12,7 @@
         <a class="aboutMe"  href="javascript:;">
           <span>更多</span>
           <div>
-            <img src="../../../../static/logo.jpeg" alt="">
+            <img src="https://cdn.calamus.xyz/meowui/logo.jpeg" alt="">
             <div class="des">
               <p><span>author:</span><a href="//www.calamus.xyz" target="_blank">calamus</a></p>
               <p><span>github:</span><a href="https://github.com/calamus0427" target="_blank">https://github.com/calamus0427</a></p>

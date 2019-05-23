@@ -57,6 +57,9 @@ export default {
       },{
         title:'模块',
         list:[{
+          title:'分页',
+          path:'pagination'
+        },{
           title:'时间轴',
           path:'timeline'
         },{

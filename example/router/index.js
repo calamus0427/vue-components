@@ -62,6 +62,11 @@ export default new Router({
           component: _import_('docs/timeline.md')
         },
         {
+          name:'分页',
+          path:'pagination',
+          component: _import_('docs/pagination.md')
+        },
+        {
           name:'树形UI',
           path:'svgTree',
           component: _import_('docs/svgTree.md')

@@ -10,10 +10,10 @@
       <div class="link_items">
         <a href="https://github.com/calamus0427/MeowMeowUI" target="_blank">github</a>
         <a class="aboutMe"  href="javascript:;">
-          <span>更多</span>
-          <div>
+          <span @mouseleave="onMouseleave" @mouseenter="onMouseenter">更多</span>
+          <div  :style="{'top':top,'left':left,'width':'400px'}">
             <img src="https://cdn.calamus.xyz/meowui/logo.jpeg" alt="">
-            <div class="des">
+            <div ref="poper" class="des">
               <p><span>author:</span><a href="//www.calamus.xyz" target="_blank">calamus</a></p>
               <p><span>github:</span><a href="https://github.com/calamus0427" target="_blank">https://github.com/calamus0427</a></p>
               <p><span>email:</span><a href="kiz.calamus@gmail.com" target="_blank" >kiz.calamus@gmail.com</a></p>
@@ -29,7 +29,26 @@
 
 <script>
 export default {
-  name:'headerLayout'
+  name:'headerLayout',
+  data(){
+    return{
+      top:'60px',
+      left:'0px'
+    }
+  },
+  methods: {
+    onMouseleave(e){
+      console.log('onMouseleave',window)
+    },
+    onMouseenter(e){
+      console.log("e",e.clientY)
+      this.top = e.clientY + 30 + 'px'
+      this.left = e.clientX - 400  + 'px'
+      console.log("refs",e.clientX - this.$refs.poper.clientWidth  + 'px',this.left)
+
+
+    }
+  }
 }
 </script>
 
@@ -123,21 +142,24 @@ export default {
 }
 .header .aboutMe{
   display:inline-block;
-  position: relative;
+  /* position: relative; */
 }
 .header .aboutMe span:hover+div{
+   opacity: 1;
+}
+.header .aboutMe span+div:hover{
    opacity: 1;
 }
 .header .aboutMe>div{
   opacity: 0;
   position: absolute;
-  top: 35px;
-  right: 20px;
+  /* top: 35px;
+  right: 20px; */
   padding:1rem;
   border:1px solid pink;
   background: white;
   display:flex;
-  transition: all 0.3s linear;
+  transition: all 0.3s linear 0.2s;
   z-index:1000000;
 }
 .header .aboutMe>div img{

@@ -5,7 +5,7 @@
  * @FilePath     : /MeowMeowUI/vue.config.js
  * @Date         : 2020-03-12 16:10:15
  * @LastEditors  : Calamus
- * @LastEditTime : 2020-03-12 16:19:39
+ * @LastEditTime : 2020-03-12 17:49:42
  */
 const path = require('path');//引入path模块
 function resolve(dir){
@@ -13,6 +13,10 @@ function resolve(dir){
 }
 
 module.exports = {
+  // 基本路径
+  publicPath: "./",
+  // 输出文件目录
+  outputDir: "dist",
   pages: {
     index: {
       entry: 'examples/main.js',

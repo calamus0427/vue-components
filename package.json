@@ -1,15 +1,7 @@
 {
-  "private": false,
-  "name": "meowmeowui",
-  "version": "0.0.6",
+  "private": true,
+  "name": "demo",
   "description": "meowui",
-  "author": "calamus0427 <1211994507@qq.com>",
-  "main": "packages/index.js",
-  "keywords": [
-    "vue",
-    "calamus",
-    "meowui"
-  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -74,17 +66,5 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/calamus0427/MeowMeowUI.git"
-  },
-  "files": [
-    "dist",
-    "packages",
-    "examples",
-    "lib"
-  ],
-  "homepage": "https://github.com/calamus0427/MeowMeowUI.git",
-  "license": "MIT"
+  ]
 }

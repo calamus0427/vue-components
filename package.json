@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "meowmeowui",
-  "version": "0.0.6",
+  "name": "meowui",
+  "version": "0.0.1",
   "description": "meowui",
   "author": "calamus0427 <1211994507@qq.com>",
   "main": "packages/index.js",
@@ -16,7 +16,7 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "lib": "vue-cli-service build --target lib --name meowmeowui --dest lib packages/index.js"
+    "lib": "vue-cli-service build --target lib --name meowui --dest lib packages/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
